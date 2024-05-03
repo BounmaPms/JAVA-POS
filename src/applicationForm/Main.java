@@ -44,6 +44,7 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelMain = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuHome = new javax.swing.JMenu();
         jMenuData = new javax.swing.JMenu();
@@ -76,6 +77,9 @@ public class Main extends javax.swing.JFrame {
         jMenuLogout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanelMain.setBackground(new java.awt.Color(255, 102, 102));
+        jPanelMain.setLayout(new java.awt.BorderLayout());
 
         jMenuBar1.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
 
@@ -265,11 +269,11 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 818, Short.MAX_VALUE)
+            .addComponent(jPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
+            .addComponent(jPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -363,5 +367,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuSale;
     private javax.swing.JMenu jMenuSearch;
     private javax.swing.JMenu jMenuTheme;
+    private javax.swing.JPanel jPanelMain;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,10 +1,15 @@
 package applicationForm;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 public class Main extends javax.swing.JFrame {
     
@@ -214,14 +219,29 @@ public class Main extends javax.swing.JFrame {
 
         jMenuItemLight.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
         jMenuItemLight.setText("Light Mode");
+        jMenuItemLight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLightActionPerformed(evt);
+            }
+        });
         jMenuTheme.add(jMenuItemLight);
 
         jMenuItemDark.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
         jMenuItemDark.setText("Dark Mode");
+        jMenuItemDark.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemDarkActionPerformed(evt);
+            }
+        });
         jMenuTheme.add(jMenuItemDark);
 
         jMenuItemMacOSDark.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
         jMenuItemMacOSDark.setText("MacOS Dark Mode");
+        jMenuItemMacOSDark.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMacOSDarkActionPerformed(evt);
+            }
+        });
         jMenuTheme.add(jMenuItemMacOSDark);
 
         jMenuBar1.add(jMenuTheme);
@@ -263,6 +283,45 @@ public class Main extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_jMenuLogoutMouseClicked
+
+    private void jMenuItemLightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLightActionPerformed
+        getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_BACKGROUND, new Color(204, 209, 209));
+        getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_FOREGROUND, new Color(23, 32, 42));
+        SwingUtilities.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(new FlatLightLaf());
+                SwingUtilities.updateComponentTreeUI(this);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e);
+            }
+        });
+    }//GEN-LAST:event_jMenuItemLightActionPerformed
+
+    private void jMenuItemDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDarkActionPerformed
+        getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_BACKGROUND, new Color(33, 47, 61));
+        getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_FOREGROUND, new Color(253, 254, 254));
+        SwingUtilities.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(new FlatDarkLaf());
+                SwingUtilities.updateComponentTreeUI(this);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e);
+            }
+        });
+    }//GEN-LAST:event_jMenuItemDarkActionPerformed
+
+    private void jMenuItemMacOSDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMacOSDarkActionPerformed
+        getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_BACKGROUND, new Color(28, 40, 51));
+        getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_FOREGROUND, new Color(253, 254, 254));
+        SwingUtilities.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(new FlatMacDarkLaf());
+                SwingUtilities.updateComponentTreeUI(this);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e);
+            }
+        });
+    }//GEN-LAST:event_jMenuItemMacOSDarkActionPerformed
 
     public static void main(String args[]) {
        

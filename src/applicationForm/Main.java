@@ -1,6 +1,7 @@
 package applicationForm;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -23,6 +24,9 @@ public class Main extends javax.swing.JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../image/people.png")));
         //ບໍ່ສະແດງ Icon ທີ່ Title Bar
         getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_SHOW_ICON, false);
+        //ປຽນສີແຖບ Title bar ດ້ານເທິງ
+        getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_BACKGROUND, new Color(204, 209, 209));
+        getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_FOREGROUND, new Color(23, 32, 42));
         
         if(!status.equals("Admin")){
             jMenuData.setVisible(false);
@@ -61,9 +65,9 @@ public class Main extends javax.swing.JFrame {
         jMenuItem16 = new javax.swing.JMenuItem();
         jMenuProfile = new javax.swing.JMenu();
         jMenuTheme = new javax.swing.JMenu();
-        jMenuItem17 = new javax.swing.JMenuItem();
-        jMenuItem18 = new javax.swing.JMenuItem();
-        jMenuItem19 = new javax.swing.JMenuItem();
+        jMenuItemLight = new javax.swing.JMenuItem();
+        jMenuItemDark = new javax.swing.JMenuItem();
+        jMenuItemMacOSDark = new javax.swing.JMenuItem();
         jMenuLogout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -208,17 +212,17 @@ public class Main extends javax.swing.JFrame {
         jMenuTheme.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenuTheme.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jMenuItem17.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jMenuItem17.setText("Light Mode");
-        jMenuTheme.add(jMenuItem17);
+        jMenuItemLight.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        jMenuItemLight.setText("Light Mode");
+        jMenuTheme.add(jMenuItemLight);
 
-        jMenuItem18.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jMenuItem18.setText("Dark Mode");
-        jMenuTheme.add(jMenuItem18);
+        jMenuItemDark.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        jMenuItemDark.setText("Dark Mode");
+        jMenuTheme.add(jMenuItemDark);
 
-        jMenuItem19.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jMenuItem19.setText("MacOS Dark Mode");
-        jMenuTheme.add(jMenuItem19);
+        jMenuItemMacOSDark.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        jMenuItemMacOSDark.setText("MacOS Dark Mode");
+        jMenuTheme.add(jMenuItemMacOSDark);
 
         jMenuBar1.add(jMenuTheme);
 
@@ -282,9 +286,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem17;
-    private javax.swing.JMenuItem jMenuItem18;
-    private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -293,6 +294,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItemDark;
+    private javax.swing.JMenuItem jMenuItemLight;
+    private javax.swing.JMenuItem jMenuItemMacOSDark;
     private javax.swing.JMenu jMenuLogout;
     private javax.swing.JMenu jMenuOrder;
     private javax.swing.JMenu jMenuProfile;

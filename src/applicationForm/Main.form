@@ -51,45 +51,60 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemEmployeeActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemProduct">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lao_SomVang" size="12" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe88;&#xeb1;&#xe94;&#xe81;&#xeb2;&#xe99;&#xe82;&#xecd;&#xec9;&#xea1;&#xeb9;&#xe99;&#xeaa;&#xeb4;&#xe99;&#xe84;&#xec9;&#xeb2;"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemProductActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCategory">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lao_SomVang" size="12" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe88;&#xeb1;&#xe94;&#xe81;&#xeb2;&#xe99;&#xe82;&#xecd;&#xec9;&#xea1;&#xeb9;&#xe99;&#xe9b;&#xeb0;&#xec0;&#xe9e;&#xe94;"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemCategoryActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemBrand">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lao_SomVang" size="12" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe88;&#xeb1;&#xe94;&#xe81;&#xeb2;&#xe99;&#xe82;&#xecd;&#xec9;&#xea1;&#xeb9;&#xe99;&#xe8d;&#xeb5;&#xec8;&#xeab;&#xecd;&#xec9;"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemBrandActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemExchange">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lao_SomVang" size="12" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe88;&#xeb1;&#xe94;&#xe81;&#xeb2;&#xe99;&#xe82;&#xecd;&#xec9;&#xea1;&#xeb9;&#xe99;&#xead;&#xeb1;&#xe94;&#xe95;&#xeb2;&#xec1;&#xea5;&#xe81;&#xe9b;&#xec8;&#xebd;&#xe99;"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemExchangeActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemSuplier">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lao_SomVang" size="12" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe88;&#xeb1;&#xe94;&#xe81;&#xeb2;&#xe99;&#xe82;&#xecd;&#xec9;&#xea1;&#xeb9;&#xe99;&#xe9c;&#xeb9;&#xec9;&#xeaa;&#xeb0;&#xedc;&#xead;&#xe87;"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemSuplierActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

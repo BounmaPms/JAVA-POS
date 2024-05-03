@@ -59,11 +59,11 @@ public class Main extends javax.swing.JFrame {
         jMenuHome = new javax.swing.JMenu();
         jMenuData = new javax.swing.JMenu();
         jMenuItemEmployee = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItemProduct = new javax.swing.JMenuItem();
+        jMenuItemCategory = new javax.swing.JMenuItem();
+        jMenuItemBrand = new javax.swing.JMenuItem();
+        jMenuItemExchange = new javax.swing.JMenuItem();
+        jMenuItemSuplier = new javax.swing.JMenuItem();
         jMenuOrder = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -122,25 +122,50 @@ public class Main extends javax.swing.JFrame {
         });
         jMenuData.add(jMenuItemEmployee);
 
-        jMenuItem2.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jMenuItem2.setText("ຈັດການຂໍ້ມູນສິນຄ້າ");
-        jMenuData.add(jMenuItem2);
+        jMenuItemProduct.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        jMenuItemProduct.setText("ຈັດການຂໍ້ມູນສິນຄ້າ");
+        jMenuItemProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemProductActionPerformed(evt);
+            }
+        });
+        jMenuData.add(jMenuItemProduct);
 
-        jMenuItem3.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jMenuItem3.setText("ຈັດການຂໍ້ມູນປະເພດ");
-        jMenuData.add(jMenuItem3);
+        jMenuItemCategory.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        jMenuItemCategory.setText("ຈັດການຂໍ້ມູນປະເພດ");
+        jMenuItemCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCategoryActionPerformed(evt);
+            }
+        });
+        jMenuData.add(jMenuItemCategory);
 
-        jMenuItem4.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jMenuItem4.setText("ຈັດການຂໍ້ມູນຍີ່ຫໍ້");
-        jMenuData.add(jMenuItem4);
+        jMenuItemBrand.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        jMenuItemBrand.setText("ຈັດການຂໍ້ມູນຍີ່ຫໍ້");
+        jMenuItemBrand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBrandActionPerformed(evt);
+            }
+        });
+        jMenuData.add(jMenuItemBrand);
 
-        jMenuItem5.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jMenuItem5.setText("ຈັດການຂໍ້ມູນອັດຕາແລກປ່ຽນ");
-        jMenuData.add(jMenuItem5);
+        jMenuItemExchange.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        jMenuItemExchange.setText("ຈັດການຂໍ້ມູນອັດຕາແລກປ່ຽນ");
+        jMenuItemExchange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemExchangeActionPerformed(evt);
+            }
+        });
+        jMenuData.add(jMenuItemExchange);
 
-        jMenuItem6.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jMenuItem6.setText("ຈັດການຂໍ້ມູນຜູ້ສະໜອງ");
-        jMenuData.add(jMenuItem6);
+        jMenuItemSuplier.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        jMenuItemSuplier.setText("ຈັດການຂໍ້ມູນຜູ້ສະໜອງ");
+        jMenuItemSuplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSuplierActionPerformed(evt);
+            }
+        });
+        jMenuData.add(jMenuItemSuplier);
 
         jMenuBar1.add(jMenuData);
 
@@ -355,6 +380,26 @@ public class Main extends javax.swing.JFrame {
         showPanel(new PanelEmployee());
     }//GEN-LAST:event_jMenuItemEmployeeActionPerformed
 
+    private void jMenuItemProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemProductActionPerformed
+
+    private void jMenuItemCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCategoryActionPerformed
+        showPanel(new PanelCategory());
+    }//GEN-LAST:event_jMenuItemCategoryActionPerformed
+
+    private void jMenuItemBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBrandActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemBrandActionPerformed
+
+    private void jMenuItemExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExchangeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemExchangeActionPerformed
+
+    private void jMenuItemSuplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSuplierActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemSuplierActionPerformed
+
     public static void main(String args[]) {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -376,18 +421,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItemBrand;
+    private javax.swing.JMenuItem jMenuItemCategory;
     private javax.swing.JMenuItem jMenuItemDark;
     private javax.swing.JMenuItem jMenuItemEmployee;
+    private javax.swing.JMenuItem jMenuItemExchange;
     private javax.swing.JMenuItem jMenuItemLight;
     private javax.swing.JMenuItem jMenuItemMacOSDark;
+    private javax.swing.JMenuItem jMenuItemProduct;
+    private javax.swing.JMenuItem jMenuItemSuplier;
     private javax.swing.JMenu jMenuLogout;
     private javax.swing.JMenu jMenuOrder;
     private javax.swing.JMenu jMenuProfile;

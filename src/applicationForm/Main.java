@@ -24,6 +24,11 @@ public class Main extends javax.swing.JFrame {
         //ບໍ່ສະແດງ Icon ທີ່ Title Bar
         getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_SHOW_ICON, false);
         
+        if(!status.equals("Admin")){
+            jMenuData.setVisible(false);
+            jMenuOrder.setVisible(false);
+            jMenuReport.setVisible(false);
+        }
     }
 
     @SuppressWarnings("unchecked")

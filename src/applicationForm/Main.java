@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -38,6 +39,15 @@ public class Main extends javax.swing.JFrame {
             jMenuOrder.setVisible(false);
             jMenuReport.setVisible(false);
         }
+        //ເວລາມາໜ້າ Main ໃຫ້ເອໄາໜ້າ Home ມາສະແດງທີ່ jPanelMain
+        showPanel(new PanelHome());
+    }
+    
+    //ສ້າງ Method ເພື່ອສະແດງແຕ່ລະໜ້າໃນ ่jPanelMain
+    private void showPanel(JPanel panel){
+        jPanelMain.removeAll();
+        jPanelMain.add(panel);
+        jPanelMain.validate();
     }
 
     @SuppressWarnings("unchecked")

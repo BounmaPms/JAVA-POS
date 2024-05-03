@@ -33,7 +33,7 @@ public class Main extends javax.swing.JFrame {
         //ປຽນສີແຖບ Title bar ດ້ານເທິງ
         getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_BACKGROUND, new Color(204, 209, 209));
         getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_FOREGROUND, new Color(23, 32, 42));
-        
+        //ຖ້າສະຖານະຂອງຜູ້ເຂົ້າໃຊ້ງານບໍ່ແມ່ນ Admin ບໍ່ໃຫ້ສະແດງເມນູ ຈັດການຂໍ້ມູນ, ສັ່ງຊື້-ນຳເຂົ້າ ແລະ ລາຍງານ
         if(!status.equals("Admin")){
             jMenuData.setVisible(false);
             jMenuOrder.setVisible(false);
@@ -58,7 +58,7 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuHome = new javax.swing.JMenu();
         jMenuData = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItemEmployee = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -99,6 +99,11 @@ public class Main extends javax.swing.JFrame {
         jMenuHome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jMenuHome.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenuHome.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jMenuHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuHomeMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenuHome);
 
         jMenuData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/database.png"))); // NOI18N
@@ -108,9 +113,14 @@ public class Main extends javax.swing.JFrame {
         jMenuData.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenuData.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jMenuItem1.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jMenuItem1.setText("ຈັດການຂໍ້ມູນພະນັກງານ");
-        jMenuData.add(jMenuItem1);
+        jMenuItemEmployee.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        jMenuItemEmployee.setText("ຈັດການຂໍ້ມູນພະນັກງານ");
+        jMenuItemEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemEmployeeActionPerformed(evt);
+            }
+        });
+        jMenuData.add(jMenuItemEmployee);
 
         jMenuItem2.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
         jMenuItem2.setText("ຈັດການຂໍ້ມູນສິນຄ້າ");
@@ -337,6 +347,14 @@ public class Main extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jMenuItemMacOSDarkActionPerformed
 
+    private void jMenuHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuHomeMouseClicked
+        showPanel(new PanelHome());
+    }//GEN-LAST:event_jMenuHomeMouseClicked
+
+    private void jMenuItemEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEmployeeActionPerformed
+        showPanel(new PanelEmployee());
+    }//GEN-LAST:event_jMenuItemEmployeeActionPerformed
+
     public static void main(String args[]) {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -351,7 +369,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuCustomer;
     private javax.swing.JMenu jMenuData;
     private javax.swing.JMenu jMenuHome;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
@@ -368,6 +385,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jMenuItemDark;
+    private javax.swing.JMenuItem jMenuItemEmployee;
     private javax.swing.JMenuItem jMenuItemLight;
     private javax.swing.JMenuItem jMenuItemMacOSDark;
     private javax.swing.JMenu jMenuLogout;

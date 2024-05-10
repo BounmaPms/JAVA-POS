@@ -167,6 +167,11 @@ public class PanelCategory extends javax.swing.JPanel {
 
         btnAdd.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
         btnAdd.setText("ເພິ່ມ");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 70, -1));
 
         btnEdit.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
@@ -212,6 +217,28 @@ public class PanelCategory extends javax.swing.JPanel {
                 .addGap(58, 58, 58))
         );
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        if (txtCategory_name.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "ກະລຸນາປ້ອນປະເພດສິນຄ້າດ້ວຍ", "ຫວ່າງເປົ່າ", JOptionPane.WARNING_MESSAGE);
+            txtCategory_name.requestFocus();
+            return;
+        }
+        try {
+            String sql = "INSERT INTO category VALUES(?, ?)";
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, txtCategory_id.getText());
+            pst.setString(2, txtCategory_name.getText());
+            if (pst.executeUpdate() > 0) {
+                FlatSVGIcon icon = new FlatSVGIcon("image_svg/check.svg");
+                JOptionPane.showMessageDialog(this, "ຂໍ້ມູນຖືກບັນທຶກລົງໃນຖານຂໍ້ມູນສໍາເລັດ", "ສໍາເລັດ", JOptionPane.WIDTH, icon);
+                clearForm();
+                tableUpdate();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

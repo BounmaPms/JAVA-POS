@@ -4,6 +4,8 @@ import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import connect_database.MysqlConnect;
 import java.sql.*;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 
 public class PanelCategory extends javax.swing.JPanel {
     
@@ -13,10 +15,34 @@ public class PanelCategory extends javax.swing.JPanel {
 
     public PanelCategory() {
         initComponents();
-        //ເຊື່ອຕໍ່ຖານຂໍ້ມູນ
-        conn = MysqlConnect.connectDB();
         txtSearch.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "ຄົ້ນຫາ");
         txtSearch.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, new FlatSVGIcon("image_svg/search.svg"));
+        //ເຊື່ອຕໍ່ຖານຂໍ້ມູນ
+        conn = MysqlConnect.connectDB();
+        
+        tableUpdate();
+    }
+    //ຂຽນເມັດທອດສະແດງຄ່າໃນຕາຕະລາງ
+    private void tableUpdate(){
+        try {
+            String sql = "SELECT * FROM category ORDER BY category_id DESC";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            
+            DefaultTableModel d = (DefaultTableModel)jTable1.getModel();
+            jTable1.setRowHeight(30);
+            d.setRowCount(0);
+            int num_row = 0;
+            while(rs.next()){
+                Vector v = new Vector();
+                v.add(++num_row);
+                v.add(rs.getString(1));
+                v.add(rs.getString(2));
+                
+                d.addRow(v);
+            }
+        } catch (Exception e) {
+        }
     }
 
     @SuppressWarnings("unchecked")

@@ -97,7 +97,15 @@ public class PanelCategory extends javax.swing.JPanel {
         }
     }
 
-
+    //ລົບຂໍ້ມູນໃນຟອມ
+    private void clearForm(){
+        autoID();
+        txtCategory_name.setText("");
+        btnAdd.setEnabled(true);
+        btnEdit.setEnabled(false);
+        btnDelete.setEnabled(false);
+        jTable1.clearSelection();
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

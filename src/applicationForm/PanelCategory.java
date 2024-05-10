@@ -45,8 +45,13 @@ public class PanelCategory extends javax.swing.JPanel {
         
         //ເຊື່ອມຕໍ່ຖານຂໍ້ມູນ
         conn = MysqlConnect.connectDB();
+        
         tableUpdate();
         autoID();
+        
+        //ໃຫ້ປຸ່ມແກ້ໄຂ ແລະ ລົບແກ້ໄຂບໍ່ໄດ້
+        btnEdit.setEnabled(false);
+        btnDelete.setEnabled(false);
     }
     
     //ສ້າງເມັດທອດ Gemerate ລະຫັດ id
@@ -137,6 +142,7 @@ public class PanelCategory extends javax.swing.JPanel {
         jLabel1.setText("ລະຫັດ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
+        txtCategory_id.setEditable(false);
         txtCategory_id.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
         jPanel1.add(txtCategory_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 280, -1));
 

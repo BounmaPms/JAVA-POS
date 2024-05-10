@@ -3,9 +3,14 @@ package applicationForm;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import connect_database.MysqlConnect;
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.*;
 import java.util.Vector;
+import javax.swing.JLabel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 public class PanelCategory extends javax.swing.JPanel {
     
@@ -21,6 +26,25 @@ public class PanelCategory extends javax.swing.JPanel {
         conn = MysqlConnect.connectDB();
         
         tableUpdate();
+        
+        //ປ່ຽນສີພື້ນຫົວຕາຕະລາງ
+        JTableHeader header = jTable1.getTableHeader();
+        header.setFont(new Font("Lao_SomVang", Font.PLAIN, 14));
+        header.setOpaque(false);
+        header.setBackground(new Color(108, 117, 125));
+        header.setForeground(new Color(243, 243, 243));
+
+        //ສະແດງຜົນຢູ່ກາງຖັນ
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        jTable1.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        jTable1.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
+
+        //ເສັ້ນຕາຕະລາງ
+        jTable1.setShowGrid(false);
+        jTable1.setShowHorizontalLines(true);
+        jTable1.setShowVerticalLines(true);
+        jTable1.setGridColor(new Color(139, 138, 137));
     }
     //ຂຽນເມັດທອດສະແດງຄ່າໃນຕາຕະລາງ
     private void tableUpdate(){

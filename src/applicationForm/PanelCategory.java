@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.sql.*;
 import java.util.Vector;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -22,10 +23,6 @@ public class PanelCategory extends javax.swing.JPanel {
         initComponents();
         txtSearch.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "ຄົ້ນຫາ");
         txtSearch.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, new FlatSVGIcon("image_svg/search.svg"));
-        //ເຊື່ອຕໍ່ຖານຂໍ້ມູນ
-        conn = MysqlConnect.connectDB();
-        
-        tableUpdate();
         
         //ປ່ຽນສີພື້ນຫົວຕາຕະລາງ
         JTableHeader header = jTable1.getTableHeader();
@@ -45,38 +42,44 @@ public class PanelCategory extends javax.swing.JPanel {
         jTable1.setShowHorizontalLines(true);
         jTable1.setShowVerticalLines(true);
         jTable1.setGridColor(new Color(139, 138, 137));
+        
+        //ເຊື່ອມຕໍ່ຖານຂໍ້ມູນ
+        conn = MysqlConnect.connectDB();
+        tableUpdate();
     }
+    
     //ຂຽນເມັດທອດສະແດງຄ່າໃນຕາຕະລາງ
-    private void tableUpdate(){
+    private void tableUpdate() {
         try {
             String sql = "SELECT * FROM category ORDER BY category_id DESC";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
-            
-            DefaultTableModel d = (DefaultTableModel)jTable1.getModel();
+           
+            DefaultTableModel d = (DefaultTableModel) jTable1.getModel();
             jTable1.setRowHeight(30);
             d.setRowCount(0);
             int num_row = 0;
-            while(rs.next()){
+            while (rs.next()) {
                 Vector v = new Vector();
                 v.add(++num_row);
                 v.add(rs.getString(1));
                 v.add(rs.getString(2));
-                
+               
                 d.addRow(v);
             }
+           
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -89,21 +92,8 @@ public class PanelCategory extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
 
+        jTable1.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jTable2.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -111,7 +101,15 @@ public class PanelCategory extends javax.swing.JPanel {
                 "ລຳດັບ", "ລະຫັດ", "ປະເພດສິນຄ້າ"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setMinWidth(100);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(100);
+            jTable1.getColumnModel().getColumn(0).setMaxWidth(100);
+            jTable1.getColumnModel().getColumn(1).setMinWidth(150);
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(150);
+            jTable1.getColumnModel().getColumn(1).setMaxWidth(150);
+        }
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ຈັດການຂໍ້ມູນປະເພດສິນຄ້າ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lao_SomVang", 0, 16))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -132,19 +130,19 @@ public class PanelCategory extends javax.swing.JPanel {
 
         jButton1.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
         jButton1.setText("ຍົກເລິກ");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 70, -1));
 
         jButton2.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
         jButton2.setText("ເພິ່ມ");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 70, -1));
 
         jButton3.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
         jButton3.setText("ແກ້ໄຂ");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 70, -1));
 
         jButton4.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
         jButton4.setText("ລົບ");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 70, -1));
 
         jLabel3.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
         jLabel3.setText("ຄົ້ນຫາ");
@@ -178,7 +176,7 @@ public class PanelCategory extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(90, 90, 90))
+                .addGap(58, 58, 58))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -192,10 +190,8 @@ public class PanelCategory extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField txtSearch;

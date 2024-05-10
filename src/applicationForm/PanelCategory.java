@@ -2,11 +2,19 @@ package applicationForm;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
+import connect_database.MysqlConnect;
+import java.sql.*;
 
 public class PanelCategory extends javax.swing.JPanel {
+    
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
 
     public PanelCategory() {
         initComponents();
+        //ເຊື່ອຕໍ່ຖານຂໍ້ມູນ
+        conn = MysqlConnect.connectDB();
         txtSearch.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "ຄົ້ນຫາ");
         txtSearch.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, new FlatSVGIcon("image_svg/search.svg"));
     }
@@ -44,15 +52,13 @@ public class PanelCategory extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jTable2.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ລຳດັບ", "ລະຫັດ", "ປະເພດສິນຄ້າ"
             }
         ));
         jScrollPane2.setViewportView(jTable2);

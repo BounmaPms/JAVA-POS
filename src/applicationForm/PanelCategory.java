@@ -46,6 +46,25 @@ public class PanelCategory extends javax.swing.JPanel {
         //ເຊື່ອມຕໍ່ຖານຂໍ້ມູນ
         conn = MysqlConnect.connectDB();
         tableUpdate();
+        autoID();
+    }
+    
+    //ສ້າງເມັດທອດ Gemerate ລະຫັດ id
+    private void autoID() {
+        try {
+            String sql = "SELECT max(category_id) FROM category";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                int id = Integer.parseInt(rs.getString(1).substring(1, 4));
+                id++;
+                txtCategory_id.setText("C" + String.format("%03d", id));
+            } else {
+                txtCategory_id.setText("C001");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     
     //ຂຽນເມັດທອດສະແດງຄ່າໃນຕາຕະລາງ
@@ -82,13 +101,13 @@ public class PanelCategory extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtCategory_id = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        txtCategory_name = new javax.swing.JTextField();
+        btnCancel = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
 
@@ -118,31 +137,31 @@ public class PanelCategory extends javax.swing.JPanel {
         jLabel1.setText("ລະຫັດ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 280, -1));
+        txtCategory_id.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        jPanel1.add(txtCategory_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 280, -1));
 
         jLabel2.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
         jLabel2.setText("ປະເພດ");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
-        jTextField2.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 280, -1));
+        txtCategory_name.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        jPanel1.add(txtCategory_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 280, -1));
 
-        jButton1.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jButton1.setText("ຍົກເລິກ");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 70, -1));
+        btnCancel.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        btnCancel.setText("ຍົກເລິກ");
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 70, -1));
 
-        jButton2.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jButton2.setText("ເພິ່ມ");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 70, -1));
+        btnAdd.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        btnAdd.setText("ເພິ່ມ");
+        jPanel1.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 70, -1));
 
-        jButton3.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jButton3.setText("ແກ້ໄຂ");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 70, -1));
+        btnEdit.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        btnEdit.setText("ແກ້ໄຂ");
+        jPanel1.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 70, -1));
 
-        jButton4.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
-        jButton4.setText("ລົບ");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 70, -1));
+        btnDelete.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        btnDelete.setText("ລົບ");
+        jPanel1.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 70, -1));
 
         jLabel3.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
         jLabel3.setText("ຄົ້ນຫາ");
@@ -182,18 +201,18 @@ public class PanelCategory extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtCategory_id;
+    private javax.swing.JTextField txtCategory_name;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
